@@ -25,7 +25,8 @@ app.use(express.json());
 app.use(cors('*'))
 
 // Serve the static files from the Webpack output
-app.use(express.static(path.join(__dirname, '../static', 'public')));
+const staticPath = path.join(__dirname, 'static', 'build');
+app.use(express.static(staticPath));
 
 // Fallback to index.html for React Router (SPA behavior)
 app.get('/api/test', (req, res) => {
